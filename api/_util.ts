@@ -101,7 +101,7 @@ export async function sendComment(
   const type: "Update" | "Create" =
     metadata.action === "create" ? "Create" : "Update";
 
-  if (type == "Update") {
+  if (metadata.action !== "create") {
     return;
   }
 
@@ -143,7 +143,7 @@ export async function sendIssue(
   const type: "Update" | "Create" =
     metadata.action === "create" ? "Create" : "Update";
 
-  if (type == "Update") {
+  if (metadata.action !== "create") {
     return;
   }
 
