@@ -139,6 +139,10 @@ export async function sendIssue(
   const type: "Update" | "Create" =
     metadata.action === "create" ? "Create" : "Update";
 
+  if (type == "Update") {
+    return;
+  }
+
   const embed = new MessageEmbed()
     .addField("Status", payload.state?.name ?? "Backlog", true)
     .setColor(payload?.state?.color ?? "#4752b2")
