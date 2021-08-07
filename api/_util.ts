@@ -101,6 +101,10 @@ export async function sendComment(
   const type: "Update" | "Create" =
     metadata.action === "create" ? "Create" : "Update";
 
+  if (type == "Update") {
+    return;
+  }
+
   const embed = new MessageEmbed()
     .setDescription(payload.body)
     .setColor("#4752b2")
